@@ -70,18 +70,18 @@ Import codecs
 ```import codecs```
 Create a empty list to hold the encoded strings
 ```encoded_data = []```
-Open a file that contains the strings we want to encode
-```with open('ioc_database.txt','r') as fh:```
-Loop through the file line by line and encode the line, add the line to the encoded_data list
+Open a file that contains the strings we want to encode. Loop through the file line by line and encode the line, add the line to the encoded_data list.
+
+```with open('ioc_database.txt','r') as fh:
+        for line in fh:
+                line = line.rstrip()
+                encoded_string = codecs.encode(line,"base64")
+                encoded_data.append(encoded_string)
 ```
-for line in fh:
-        line = line.rstrip()
-        encoded_string = codecs.encode(line,"base64")
-        encoded_data.append(encoded_string)
-        ```
 Open a new file and iterate over the encoded_data list and write each item to the file
+
 ```
 with open('decoded_file.txt','a+') as fh:
     for item in decoded_data:
         fh.write(item+'\n')
-        ```
+```
