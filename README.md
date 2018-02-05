@@ -1,4 +1,4 @@
-## Welcome to GitHub Pages
+## A Python File Encoder / Decoder
 
 You can use the [editor on GitHub](https://github.com/centem/file_encoder/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
 
@@ -6,10 +6,13 @@ Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://j
 
 ### Markdown
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+Python strings have encode and decode methods. You pass a "codec" to the encode or decode method, and that code will be applied to the string. In most cases, the decode() method is used to undo the encoding performed by the encode() method. ROT-13 is one exception to this because, like XOR encryption, ROT-13 reverses itself when encoded twice.
+
+Please note that in Python 3 the string encode and decode methods have been repurposed to create a Python 2.7 compatible string. 
 
 ```markdown
-Syntax highlighted code block
+>>> "ENCODE ME".encode("ROT-13")
+>>> 'RAPBQR ZR'
 
 # Header 1
 ## Header 2
