@@ -62,3 +62,4 @@ The codecs module can be used to encode data in a way that is forward compatible
 'Hello World'
 >>>
 ```
+Notice that some of these require Python 2 compatible byte string rather than Python 3 compatible Unicode string. Placing the little b outside of the quotes accomplishes this. You can find a complete list of available encoders here: https://docs.python.org/release/2.5.2/lib/standard-encodings.html
