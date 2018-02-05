@@ -63,3 +63,25 @@ The codecs module can be used to encode data in a way that is forward compatible
 >>>
 ```
 Notice that some of these require Python 2 compatible byte string rather than Python 3 compatible Unicode string. Placing the little b outside of the quotes accomplishes this. You can find a complete list of available encoders here: https://docs.python.org/release/2.5.2/lib/standard-encodings.html
+
+### Encoding an Entire File
+Now we are ready to encode a file with what we just learned. Here is the algorithm we will employ.
+Import codecs
+```import codecs```
+Create a empty list to hold the encoded strings
+```encoded_data = []```
+Open a file that contains the strings we want to encode
+```with open('ioc_database.txt','r') as fh:```
+Loop through the file line by line and encode the line, add the line to the encoded_data list
+```
+for line in fh:
+        line = line.rstrip()
+        encoded_string = codecs.encode(line,"base64")
+        encoded_data.append(encoded_string)
+        ```
+Open a new file and iterate over the encoded_data list and write each item to the file
+```
+with open('decoded_file.txt','a+') as fh:
+    for item in decoded_data:
+        fh.write(item+'\n')
+        ```
